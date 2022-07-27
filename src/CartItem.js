@@ -4,7 +4,7 @@ class CartItem extends React.Component {
     render ()
     {
         return (
-            <div style={{ display : "inline-flex"}}>
+            <div className = "cart-item" >
                 <div className="left-block">
                     <img style={styles.image} />
                 </div>
