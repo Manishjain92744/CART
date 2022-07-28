@@ -13,7 +13,7 @@ class CartItem extends React.Component {
     }
     increaseQuantity = () => {
         // console.log('test' ,this.state) ;
-        // setState form 1 
+        // setState form 1 object form  asynchronus call 
         // this.setState({
             //     qty : this.state.qty+1
             // },() => {} ) call back to updating state 
