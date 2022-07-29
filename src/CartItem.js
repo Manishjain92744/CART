@@ -1,36 +1,6 @@
 import React from "react";
 
 class CartItem extends React.Component {
-    
-      // 2nd way of doing   this.increaseQuantity = this.increaseQuantity.bind(this);
-    increaseQuantity = () => {
-        // console.log('test' ,this.state) ;
-        // setState form 1 object form  asynchronus call 
-        // this.setState({
-            //     qty : this.state.qty+1
-            // },() => {} ) call back to updating state 
-            // setState form 2 - if previous state required use this 
-            this.setState((prevState) => {
-                return {
-                    qty : prevState.qty +1 
-                }
-            } , () => { 
-                // console.log('this.state',this.state);
-            })
-            // console.log (this.state);
-        }
-        decreaseQuantity = () => {
-            const {qty }=this.state;
-            if(qty===0)
-                return ;
-            else{
-                this.setState((prevState) => {
-                    return {
-                        qty : prevState.qty - 1 
-                    }
-                })
-            }        
-        }
         render ()
     {
          console.log('this.props',this.props );
@@ -50,12 +20,12 @@ class CartItem extends React.Component {
                      className="action-icons" 
                      src="https://cdn-icons-png.flaticon.com/512/992/992651.png" 
                    // 1st way of doing onClick={this.increaseQuantity.bind(this)}
-                   onClick = {this.increaseQuantity}
+                   onClick = {() => this.props.onIncreaseQuantity(this.props.product)}
                      />
                     <img alt=" decrease" 
                     className="action-icons" 
                     src="https://cdn-icons.flaticon.com/png/512/2740/premium/2740679.png?token=exp=1658915186~hmac=87882be24b46532f78a626fd6d590d65" 
-                    onClick = {this.decreaseQuantity}
+                    onClick = {() => this.props.onDecreaseQuantity(this.props.product)}
                     />
                     <img alt=" delete" 
                     className="action-icons"
